@@ -5,6 +5,7 @@ import os
 ###############
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PROJECT_NAME = os.path.basename(BASE_DIR)
 
 
 #####################
@@ -31,6 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'allauth',
     'allauth.account',
+    'accounts.apps.AccountsConfig',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
     'allauth.socialaccount.providers.twitter',
@@ -125,6 +127,8 @@ STATIC_URL = '/static/'
 ##################
 # Authentication #
 ##################
+
+AUTH_USER_MODEL = 'accounts.CustomUser'
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
